@@ -19,6 +19,7 @@ public class UI {
     public String currentDialogue = "";
     int commandNum = 0;
     int combatChoice = 0;
+    int waitTime = 0;
     public int attackSelected;
 
     public UI(GamePanel gp){
@@ -149,7 +150,6 @@ public class UI {
         // The actual bar
         g2.setColor(Color.GREEN);
         g2.fillRect(80, 12, Math.round(300 * (gp.enemy[enemyTag].health / gp.enemy[enemyTag].maxHealth)), 20);
-
         // COMBAT TITLE
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 60F));
         text = "Now in Combat State";
@@ -165,64 +165,82 @@ public class UI {
         g2.drawImage(gp.enemy[enemyTag].down1, x, y, gp.tileSize * 3, gp.tileSize * 3, null);
 
         // DRAW COMBAT BOX
-        g2.setColor(Color.WHITE);
-        g2.fillRect(5, gp.tileSize*8, gp.screenWidth-10, gp.tileSize*4 - 10);
+        if (gp.enemy[enemyTag].health > 0){
+            g2.setColor(Color.WHITE);
+            g2.fillRect(5, gp.tileSize*8, gp.screenWidth-10, gp.tileSize*4 - 10);
 
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
-        g2.setColor(Color.BLACK);
+            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            g2.setColor(Color.BLACK);
 
-        text = "Punch that bii";
-        x = gp.tileSize*2;
-        y = gp.tileSize * 9;
-        g2.drawString(text, x, y);
-        if (combatChoice == 0){
-            g2.drawString(">", x-gp.tileSize, y);
-            if (gp.keyH.enemyTalk == true){
-                text = "bruh";
+            text = "Punch that bii";
+            x = gp.tileSize*2;
+            y = gp.tileSize * 9;
+            g2.drawString(text, x, y);
+            if (combatChoice == 0){
+                g2.drawString(">", x-gp.tileSize, y);
+                if (gp.keyH.enemyTalk == true){
+                    text = "bruh";
+                    x = gp.tileSize * 2;
+                    y = gp.tileSize * 7;
+                    g2.drawString(text, x, y);
+                }
+            }
+
+            text = "Throw rock";
+            x = gp.tileSize*9;
+            y = gp.tileSize * 9;
+            g2.drawString(text, x, y);
+            if (combatChoice == 1){
+                g2.drawString(">", x-gp.tileSize, y);
+                if (gp.keyH.enemyTalk == true){
+                    text = "oww";
+                    x = gp.tileSize * 2;
+                    y = gp.tileSize * 7;
+                    g2.drawString(text, x, y);
+                }
+            }
+
+            text = "Mean Insult";
+            x = gp.tileSize*2;
+            y = gp.tileSize * 11;
+            g2.drawString(text, x, y);
+            if (combatChoice == 2){
+                g2.drawString(">", x-gp.tileSize, y);
+                if (gp.keyH.enemyTalk == true){
+                    text = "why";
+                    x = gp.tileSize * 2;
+                    y = gp.tileSize * 7;
+                    g2.drawString(text, x, y);
+                }
+            }
+
+            text = "Quit";
+            x = gp.tileSize*9;
+            y = gp.tileSize * 11;
+            g2.drawString(text, x, y);
+            if (combatChoice == 3){
+                g2.drawString(">", x-gp.tileSize, y);
+                text = "please just leave";
                 x = gp.tileSize * 2;
-                y = gp.tileSize * 7;
+                y = gp.tileSize * 8 - 24;
                 g2.drawString(text, x, y);
             }
         }
-
-        text = "Throw rock";
-        x = gp.tileSize*9;
-        y = gp.tileSize * 9;
-        g2.drawString(text, x, y);
-        if (combatChoice == 1){
-            g2.drawString(">", x-gp.tileSize, y);
-            if (gp.keyH.enemyTalk == true){
-                text = "oww";
-                x = gp.tileSize * 2;
-                y = gp.tileSize * 7;
-                g2.drawString(text, x, y);
-            }
-        }
-
-        text = "Mean Insult";
-        x = gp.tileSize*2;
-        y = gp.tileSize * 11;
-        g2.drawString(text, x, y);
-        if (combatChoice == 2){
-            g2.drawString(">", x-gp.tileSize, y);
-            if (gp.keyH.enemyTalk == true){
-                text = "why";
-                x = gp.tileSize * 2;
-                y = gp.tileSize * 7;
-                g2.drawString(text, x, y);
-            }
-        }
-
-        text = "Quit";
-        x = gp.tileSize*9;
-        y = gp.tileSize * 11;
-        g2.drawString(text, x, y);
-        if (combatChoice == 3){
-            g2.drawString(">", x-gp.tileSize, y);
-            text = "please just leave";
+        else{
+            gp.stopMusic();
+            text = "oh.. :(";
             x = gp.tileSize * 2;
             y = gp.tileSize * 8 - 24;
             g2.drawString(text, x, y);
+            if (waitTime > 120){
+                gp.enemy[enemyTag] = null;
+                gp.gameState = gp.playState;
+                gp.playMusic(0);
+            }
+            waitTime++;
+            System.out.println(waitTime);
+            // gp.enemy[enemyTag] = null;
+            // gp.gameState = gp.playState;
         }
 
     }

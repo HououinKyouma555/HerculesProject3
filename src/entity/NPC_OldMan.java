@@ -34,10 +34,10 @@ public class NPC_OldMan extends Entity{
 
     public void setDialogue(){
 
-        dialogues[0] = "hello, Grant.";
-        dialogues[1] = "you're looking real \nscrum dum dilly umscious today.";
-        dialogues[2] = "lips looking awfully juicy";
-        dialogues[3] = "body too";
+        dialogues[0] = "hello, Hercules.";
+        dialogues[1] = "Please, my son was killed by\na lion.";
+        dialogues[2] = "It escaped into the forest\nbut it will be back for more";
+        dialogues[3] = "Please, save Nemea";
         dialogues[4] = "we should fuck";
         
     }
