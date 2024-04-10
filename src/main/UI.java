@@ -197,6 +197,12 @@ public class UI {
                 x = gp.tileSize*2;
                 y = gp.tileSize * 9;
                 g2.drawString(gp.enemy[enemyTag].name +" used "+ attack+ "!", x, y);
+
+                text = gp.enemy[enemyTag].attackResponse[combatChoice];
+                x = gp.tileSize * 2;
+                y = gp.tileSize * 8 - 24;
+                g2.drawString(text, x, y);
+
                 if (gp.keyH.enterPressed == true){
                     gp.turn++;
                 }
@@ -211,12 +217,6 @@ public class UI {
                 g2.drawString(text, x, y);
                 if (combatChoice == 0){
                     g2.drawString(">", x-gp.tileSize, y);
-                    if (gp.keyH.enemyTalk == true){
-                        text = gp.enemy[enemyTag].attackResponse[0];
-                        x = gp.tileSize * 2;
-                        y = gp.tileSize * 8 - 24;
-                        g2.drawString(text, x, y);
-                    }
                 }
 
                 text = gp.enemy[enemyTag].attackOption[1];
@@ -225,12 +225,6 @@ public class UI {
                 g2.drawString(text, x, y);
                 if (combatChoice == 1){
                     g2.drawString(">", x-gp.tileSize, y);
-                    if (gp.keyH.enemyTalk == true){
-                        text = gp.enemy[enemyTag].attackResponse[1];
-                        x = gp.tileSize * 2;
-                        y = gp.tileSize * 8 - 24;
-                        g2.drawString(text, x, y);
-                    }
                 }
 
                 text = gp.enemy[enemyTag].attackOption[2];
@@ -239,12 +233,6 @@ public class UI {
                 g2.drawString(text, x, y);
                 if (combatChoice == 2){
                     g2.drawString(">", x-gp.tileSize, y);
-                    if (gp.keyH.enemyTalk == true){
-                        text = gp.enemy[enemyTag].attackResponse[2];
-                        x = gp.tileSize * 2;
-                        y = gp.tileSize * 8 -24;
-                        g2.drawString(text, x, y);
-                    }
                 }
 
                 text = gp.enemy[enemyTag].attackOption[3];
