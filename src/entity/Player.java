@@ -60,17 +60,25 @@ public class Player extends Entity {
     
     // Various player images for animation
     public void getImage(){
+        up1 = setUp("hercules/HeraclesDownLeft");
+        up2 = setUp("hercules/HeraclesDownRight");
+        down1 = setUp("hercules/HeraclesDownLeft");
+        down2 = setUp("hercules/HeraclesDownRight");
+        left1 = setUp("hercules/HeraclesLeftCrip");
+        left2 = setUp("hercules/HeraclesLeftStill");
+        right1 = setUp("hercules/HeraclesRightCrip");
+        right2 = setUp("hercules/HeraclesRightStill");
 
-        up1 = setUp("lion/LionDownLeft");
-        up2 = setUp("lion/LionDownRight");
-        down1 = setUp("lion/LionDownLeft");
-        down2 = setUp("lion/LionDownRight");
-        // down1 = setUp("hercules/HeraclesDownLeft");
-        // down2 = setUp("hercules/HeraclesDownRight");
-        left1 = setUp("lion/LionLeft1");
-        left2 = setUp("lion/LionLeft2");
-        right1 = setUp("lion/LionRight1");
-        right2 = setUp("lion/LionRight2");
+        // up1 = setUp("lion/LionDownLeft");
+        // up2 = setUp("lion/LionDownRight");
+        // down1 = setUp("lion/LionDownLeft");
+        // down2 = setUp("lion/LionDownRight");
+        // // down1 = setUp("hercules/HeraclesDownLeft");
+        // // down2 = setUp("hercules/HeraclesDownRight");
+        // left1 = setUp("lion/LionLeft1");
+        // left2 = setUp("lion/LionLeft2");
+        // right1 = setUp("lion/LionRight1");
+        // right2 = setUp("lion/LionRight2");
 
     }
 

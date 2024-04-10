@@ -81,7 +81,7 @@ public class UI {
 
         x = gp.screenWidth /2 - gp.tileSize * 2;
         y += gp.tileSize * 2 - gp.tileSize;
-        g2.drawImage(gp.player.right1, x, y, gp.tileSize * 3, gp.tileSize * 3, null);
+        g2.drawImage(gp.player.down1, x, y, gp.tileSize * 3, gp.tileSize * 3, null);
 
         g2.setFont(gp.getFont().deriveFont(Font.PLAIN, 40F));
         g2.setColor(Color.WHITE);
