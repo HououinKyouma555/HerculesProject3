@@ -7,6 +7,7 @@ public class BattleSystem{
     static int action;
     static Sword sword;
     static Bow bow;
+    static Lion lion;
     static Random random = new Random();
     public static void battle(){
     try (Scanner input = new Scanner(System.in)) {
@@ -56,11 +57,11 @@ public class BattleSystem{
     player.hp=player.maxHP;
     }
 }
-}
-/*public static void Lionbattle(){
+
+public static void Lionbattle(){
     try (Scanner input = new Scanner(System.in)) {
         while (true) {
-            System.out.println("The enemy's health is " + enemy.hp + "/" + enemy.maxHP);
+            System.out.println("The lions's health is " + lion.hp + "/" + lion.maxHP);
             System.out.println("Your health is " + player.hp + "/" + player.maxHP);
             //This battle system needs to be modified to work with the GUI, so this is temporary.
             System.out.println("Choose an option, 1 (Club), 2 (Bow)");
@@ -76,14 +77,14 @@ public class BattleSystem{
 
                 if (randomNumber > 75) {
                     System.out.println("The shot landed!");
-                    enemy.hp -=bow.bowAttackValue;
+                    lion.hp -=bow.bowAttackValue;
                     System.out.println("The enemy took" + bow.bowAttackValue +"!");
                 } else {
                     System.out.println("The shot missed...");
                 }    
             }
             //Enemy attack scales with players reputation
-            int randomAttack = random.nextInt(25*player.reputation);
+            int randomAttack = random.nextInt(50*player.reputation);
             player.hp -= randomAttack;   
             //Check if player or enemy are dead
             if (player.hp<=0){
@@ -95,10 +96,11 @@ public class BattleSystem{
                 player.reputation += 1;
                 break;
             }
+        }
+    }
 
 }
-
-*/
+}
 
 
 
