@@ -14,6 +14,17 @@ public class Lion extends Entity {
         direction = "down";
         appears = 2;
 
+        //ATTACK OPTIONS
+        attackOption[0] = "Sword";
+        attackOption[1] = "Bow and Arrow";
+        attackOption[2] = "Strangle";
+        attackOption[3] = "punch";
+
+        attackResponse[0] = "rawr";
+        attackResponse[1] = "grrr";
+        attackResponse[2] = ";)";
+        attackResponse[3] = "bruh";
+
         getImage();
     }
 
@@ -28,6 +39,38 @@ public class Lion extends Entity {
         right1 = setUp("lion/LionRight1");
         right2 = setUp("lion/LionRight2");
 
+    }
+
+    public void attackEnemy(int attackSelected){
+        switch (attackSelected){
+            case (0):
+                System.out.println("Attack 0 was chosen");
+                health -= 10;
+                System.out.println("Health = "+health);
+                break;
+            case (1):
+                System.out.println("Attack 1 was chosen");
+                health -= 20;
+                System.out.println("Health = "+health);
+                break;
+            case (2):
+                System.out.println("Attack 2 was chosen");
+                System.out.println("Health = "+health);
+                break;
+        }
+    }
+
+    public void speak(){
+        super.speak();
+    }
+
+    public String enemyAttack(){
+        
+        String attackName = "bite";
+        gp.player.health -= 10;
+
+        return attackName;
+        
     }
     
 }

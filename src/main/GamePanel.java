@@ -161,7 +161,9 @@ public class GamePanel extends JPanel implements Runnable{
 
             for (int i = 0; i < obj.length; i++){
                 if (obj[i] != null){
-                    obj[i].draw(g2, this);
+                    if (obj[i].appears == mapState){
+                        obj[i].draw(g2, this);
+                    }
                 }
             }
     

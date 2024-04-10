@@ -17,6 +17,7 @@ public class SuperObject {
     public int solidAreaDefaultX = 0;
     public int solidAreaDefaultY = 0;
     UtilityTool uTool = new UtilityTool();
+    public int appears;
 
     public void draw(Graphics2D g2, GamePanel gp){
         

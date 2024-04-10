@@ -112,16 +112,19 @@ public class Entity{
         // spriteCounter exceeds 10, the spriteNum of the character changes and spriteCounter is
         // refreshed. The result is that 6 times per second, the character changes costume to create
         // the walking animation.
-        spriteCounter++;
-        if (spriteCounter >= 10){
-            if (spriteNum == 1){
-                spriteNum = 2;
+        if (speed != 0){
+            spriteCounter++;
+            if (spriteCounter >= 10){
+                if (spriteNum == 1){
+                    spriteNum = 2;
+                }
+                else if (spriteNum == 2){
+                    spriteNum = 1;
+                }
+                spriteCounter = 0;
             }
-            else if (spriteNum == 2){
-                spriteNum = 1;
-            }
-            spriteCounter = 0;
         }
+        
         setDialogue();
     }
 
