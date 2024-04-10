@@ -47,6 +47,7 @@ public class Entity{
     // Attack Options
     public String[] attackOption = new String[4];
     public String[] attackResponse = new String[4];
+    public String attackName;
     
     // Misc things
     public boolean lostCane = false;
@@ -121,6 +122,16 @@ public class Entity{
             }
             spriteCounter = 0;
         }
+        setDialogue();
+    }
+
+    public String enemyAttack(){
+
+        return attackName;
+    }
+
+    public void setDialogue(){
+
     }
 
     public void attackEnemy(int attackSelected){

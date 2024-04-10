@@ -17,6 +17,7 @@ public class Player extends Entity {
 
     public final int screenX;
     public final int screenY;
+    public int reputation;
 
     public int enemyTag = 999;
 
@@ -30,6 +31,7 @@ public class Player extends Entity {
         health = maxHealth;
         this.gp = gp;
         this.keyH = keyH;
+        reputation = 0;
 
         // sets the screen
         screenX = gp.screenWidth/2 - (gp.tileSize/2);
@@ -179,10 +181,10 @@ public class Player extends Entity {
                 // fucking around
                 if (gp.keyH.enterPressed == true)
                 {
-                gp.mapState = gp.npcHouse1;
-                gp.tileM.loadMap("/res/maps/house01.txt");
-                worldX = 24*gp.tileSize;
-                worldY=24*gp.tileSize;
+                    gp.mapState = gp.npcHouse1;
+                    gp.tileM.loadMap("/res/maps/house01.txt");
+                    worldX = 24*gp.tileSize;
+                    worldY=24*gp.tileSize;
                 }
             }
         }

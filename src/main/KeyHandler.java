@@ -46,11 +46,15 @@ public class KeyHandler implements KeyListener {
             // messing around shit
             if (code == KeyEvent.VK_Q){
                 gp.mapState = gp.npcHouse1;
-                gp.tileM.loadMap("/res/maps/house01.txt"); 
+                gp.tileM.loadMap("/res/maps/cave.txt"); 
             }
             if (code == KeyEvent.VK_E){
                 gp.mapState = gp.Nemea;
                 gp.tileM.loadMap("/res/maps/nemea.txt"); 
+            }
+            if (code == KeyEvent.VK_X){
+                gp.player.reputation++;
+                System.out.println("Player reputation = " + gp.player.reputation);
             }
 
             // Run function. Uses Shift
@@ -130,6 +134,7 @@ public class KeyHandler implements KeyListener {
                         gp.gameState = gp.playState;
                         break;
                 }
+                gp.turn++;
              }
         }
 

@@ -55,5 +55,14 @@ public class BlueBoy extends Entity{
     public void speak(){
         super.speak();
     }
+
+    public String enemyAttack(){
+        
+        String attackName = "punch";
+        gp.player.health -= 5;
+
+        return attackName;
+        
+    }
     
 }

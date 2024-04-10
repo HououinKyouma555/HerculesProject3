@@ -188,58 +188,69 @@ public class UI {
             g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
             g2.setColor(Color.BLACK);
 
-            text = gp.enemy[enemyTag].attackOption[0];
-            x = gp.tileSize*2;
-            y = gp.tileSize * 9;
-            g2.drawString(text, x, y);
-            if (combatChoice == 0){
-                g2.drawString(">", x-gp.tileSize, y);
-                if (gp.keyH.enemyTalk == true){
-                    text = gp.enemy[enemyTag].attackResponse[0];
-                    x = gp.tileSize * 2;
-                    y = gp.tileSize * 8 - 24;
-                    g2.drawString(text, x, y);
-                }
+            if (gp.turn %2 == 1){
+                String attack = gp.enemy[enemyTag].enemyAttack();
+                x = gp.tileSize*2;
+                y = gp.tileSize * 9;
+                g2.drawString(attack, x, y);
+                gp.turn++;
             }
-
-            text = gp.enemy[enemyTag].attackOption[1];
-            x = gp.tileSize*9;
-            y = gp.tileSize * 9;
-            g2.drawString(text, x, y);
-            if (combatChoice == 1){
-                g2.drawString(">", x-gp.tileSize, y);
-                if (gp.keyH.enemyTalk == true){
-                    text = gp.enemy[enemyTag].attackResponse[1];
-                    x = gp.tileSize * 2;
-                    y = gp.tileSize * 8 - 24;
-                    g2.drawString(text, x, y);
-                }
-            }
-
-            text = gp.enemy[enemyTag].attackOption[2];
-            x = gp.tileSize*2;
-            y = gp.tileSize * 11;
-            g2.drawString(text, x, y);
-            if (combatChoice == 2){
-                g2.drawString(">", x-gp.tileSize, y);
-                if (gp.keyH.enemyTalk == true){
-                    text = gp.enemy[enemyTag].attackResponse[2];
-                    x = gp.tileSize * 2;
-                    y = gp.tileSize * 8 -24;
-                    g2.drawString(text, x, y);
-                }
-            }
-
-            text = gp.enemy[enemyTag].attackOption[3];
-            x = gp.tileSize*9;
-            y = gp.tileSize * 11;
-            g2.drawString(text, x, y);
-            if (combatChoice == 3){
-                g2.drawString(">", x-gp.tileSize, y);
-                text = gp.enemy[enemyTag].attackResponse[3];
-                x = gp.tileSize * 2;
-                y = gp.tileSize * 8 - 24;
+            else{
+                
+                waitTime = 0;
+                text = gp.enemy[enemyTag].attackOption[0];
+                x = gp.tileSize*2;
+                y = gp.tileSize * 9;
                 g2.drawString(text, x, y);
+                if (combatChoice == 0){
+                    g2.drawString(">", x-gp.tileSize, y);
+                    if (gp.keyH.enemyTalk == true){
+                        text = gp.enemy[enemyTag].attackResponse[0];
+                        x = gp.tileSize * 2;
+                        y = gp.tileSize * 8 - 24;
+                        g2.drawString(text, x, y);
+                    }
+                }
+
+                text = gp.enemy[enemyTag].attackOption[1];
+                x = gp.tileSize*9;
+                y = gp.tileSize * 9;
+                g2.drawString(text, x, y);
+                if (combatChoice == 1){
+                    g2.drawString(">", x-gp.tileSize, y);
+                    if (gp.keyH.enemyTalk == true){
+                        text = gp.enemy[enemyTag].attackResponse[1];
+                        x = gp.tileSize * 2;
+                        y = gp.tileSize * 8 - 24;
+                        g2.drawString(text, x, y);
+                    }
+                }
+
+                text = gp.enemy[enemyTag].attackOption[2];
+                x = gp.tileSize*2;
+                y = gp.tileSize * 11;
+                g2.drawString(text, x, y);
+                if (combatChoice == 2){
+                    g2.drawString(">", x-gp.tileSize, y);
+                    if (gp.keyH.enemyTalk == true){
+                        text = gp.enemy[enemyTag].attackResponse[2];
+                        x = gp.tileSize * 2;
+                        y = gp.tileSize * 8 -24;
+                        g2.drawString(text, x, y);
+                    }
+                }
+
+                text = gp.enemy[enemyTag].attackOption[3];
+                x = gp.tileSize*9;
+                y = gp.tileSize * 11;
+                g2.drawString(text, x, y);
+                if (combatChoice == 3){
+                    g2.drawString(">", x-gp.tileSize, y);
+                    text = gp.enemy[enemyTag].attackResponse[3];
+                    x = gp.tileSize * 2;
+                    y = gp.tileSize * 8 - 24;
+                    g2.drawString(text, x, y);
+                }
             }
         }
         else{
