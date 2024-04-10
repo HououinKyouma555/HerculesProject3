@@ -56,6 +56,11 @@ public class GamePanel extends JPanel implements Runnable{
     public final int dialogueState = 3;
     public final int combatState = 4;
 
+    // MAP STATE
+    public int mapState;
+    public final int Nemea = 0;
+    public final int npcHouse1 = 1;
+
     // Constructor
     public GamePanel(){
 
@@ -159,13 +164,17 @@ public class GamePanel extends JPanel implements Runnable{
     
             for (int i = 0; i < npc.length; i++){
                 if (npc[i] != null){
-                    npc[i].draw(g2);
+                    if (npc[i].appears == mapState){
+                        npc[i].draw(g2);
+                    }
                 }
             }
 
             for (int i = 0; i < enemy.length; i++){
                 if (enemy[i] != null){
-                    enemy[i].draw(g2);
+                    if (enemy[i].appears == mapState){
+                        enemy[i].draw(g2);
+                    }
                 }
             }
     

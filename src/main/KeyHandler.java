@@ -45,9 +45,11 @@ public class KeyHandler implements KeyListener {
             }
             // messing around shit
             if (code == KeyEvent.VK_Q){
+                gp.mapState = gp.npcHouse1;
                 gp.tileM.loadMap("/res/maps/house01.txt"); 
             }
             if (code == KeyEvent.VK_E){
+                gp.mapState = gp.Nemea;
                 gp.tileM.loadMap("/res/maps/nemea.txt"); 
             }
 
@@ -121,9 +123,12 @@ public class KeyHandler implements KeyListener {
                         gp.enemy[gp.player.enemyTag].attackEnemy(gp.ui.attackSelected);
                         break;
                     case (3):
+                        gp.ui.attackSelected = 3;
+                        gp.enemy[gp.player.enemyTag].attackEnemy(gp.ui.attackSelected);
                         gp.stopMusic();
                         gp.playMusic(0);
                         gp.gameState = gp.playState;
+                        break;
                 }
              }
         }

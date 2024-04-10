@@ -16,10 +16,12 @@ public class Entity{
     public int worldX, worldY;
     public int speed;
     GamePanel gp;
+    public int appears;
 
     // Each of these is an image corresponding to direction for animation's sake
     public BufferedImage up1, up2, down1, down2, right1, right2, left1, left2;
     public String direction;
+    public String name;
 
     // Used for animation
     public int spriteCounter = 0;
@@ -41,6 +43,13 @@ public class Entity{
     // Health
     public float maxHealth;
     public float health;
+
+    // Attack Options
+    public String[] attackOption = new String[4];
+    public String[] attackResponse = new String[4];
+    
+    // Misc things
+    public boolean lostCane = false;
     
     public Entity(GamePanel gp){
         this.gp = gp;

@@ -26,7 +26,8 @@ public class Player extends Entity {
     public Player (GamePanel gp, KeyHandler keyH){
 
         super(gp);
-
+        maxHealth = 500;
+        health = maxHealth;
         this.gp = gp;
         this.keyH = keyH;
 
@@ -178,6 +179,7 @@ public class Player extends Entity {
                 // fucking around
                 if (gp.keyH.enterPressed == true)
                 {
+                gp.mapState = gp.npcHouse1;
                 gp.tileM.loadMap("/res/maps/house01.txt");
                 worldX = 24*gp.tileSize;
                 worldY=24*gp.tileSize;

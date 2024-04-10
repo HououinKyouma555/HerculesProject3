@@ -6,10 +6,23 @@ public class BlueBoy extends Entity{
 
     public BlueBoy(GamePanel gp) {
         super(gp);
+        name = "Stevie";
         maxHealth = 100;
         health = maxHealth;
 
         direction = "down";
+        appears = 1;
+
+        //ATTACK OPTIONS
+        attackOption[0] = "Punch that bii";
+        attackOption[1] = "Throw Rock";
+        attackOption[2] = "Mean insult";
+        attackOption[3] = "Quit";
+
+        attackResponse[0] = "bruh";
+        attackResponse[1] = "oww";
+        attackResponse[2] = "why";
+        attackResponse[3] = "Please just leave";
 
         getImage();
         
@@ -18,13 +31,6 @@ public class BlueBoy extends Entity{
     public void getImage(){
         down1 = setUp("player/boy_down_1");
         down2 = setUp("player/boy_down_1");
-    }
-
-    public void setDialogue(){
-
-        dialogues[0] = "I am blue boy";
-        dialogues[1] = "I have blue balls too.";
-        
     }
 
     public void attackEnemy(int attackSelected){

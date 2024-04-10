@@ -14,6 +14,22 @@ public class NPC_OldMan extends Entity{
         direction = "down";
         speed = 1;
 
+        maxHealth = 50;
+        health = maxHealth;
+
+        name = "Old Wizard";
+        appears = 0;
+
+        attackOption[0] = "Trip";
+        attackOption[1] = "Rob Cane";
+        attackOption[2] = "Give Bagel";
+        attackOption[3] = "Quit";
+
+        attackResponse[0] = "oof";
+        attackResponse[1] = "why would you do that";
+        attackResponse[2] = "thank you";
+        attackResponse[3] = "Please leave";
+
         getImage();
         setDialogue();
 
@@ -38,8 +54,6 @@ public class NPC_OldMan extends Entity{
         dialogues[1] = "Please, my son was killed by\na lion.";
         dialogues[2] = "It escaped into the forest\nbut it will be back for more";
         dialogues[3] = "Please, save Nemea";
-        dialogues[4] = "we should fuck";
-        
     }
 
     public void setAction(){
@@ -64,6 +78,32 @@ public class NPC_OldMan extends Entity{
             actionLockCounter = 0;
         }
         actionLockCounter++;
+    }
+
+    public void attackEnemy(int attackSelected){
+        switch (attackSelected){
+            case (0):
+                System.out.println("Attack 0 was chosen");
+                health -= 10;
+                System.out.println("Health = "+health);
+                break;
+            case (1):
+                System.out.println("Attack 1 was chosen");
+                health -= 20;
+                lostCane = true;
+                down1 = setUp("npc/oldman_no_cane");
+                System.out.println("Health = "+health);
+                break;
+            case (2):
+                System.out.println("Attack 2 was chosen");
+                health += 5;
+                System.out.println("Health = "+health);
+                break;
+            case (3):
+                System.out.println("Quit Battle");
+                lostCane = false;
+                down1 = setUp("npc/oldman_down_1");
+        }
     }
 
     public void speak(){

@@ -18,14 +18,14 @@ public class UI {
     public boolean gameFinished = false;
     public String currentDialogue = "";
     int commandNum = 0;
-    int combatChoice = 0;
+    public int combatChoice = 0;
     int waitTime = 0;
     public int attackSelected;
 
     public UI(GamePanel gp){
         this.gp = gp;
 
-        arial_40 = new Font("Arial", Font.PLAIN, 40);
+        arial_40 = new Font("Arial", Font.BOLD, 40);
 
         arial_80B = new Font("Arial", Font.BOLD, 80);
 
@@ -132,37 +132,53 @@ public class UI {
             g2.drawString(line, x, y);
             y+= 40;
         }
-        
     }
 
     public void drawCombatScreen(int enemyTag){
         g2.setColor(new Color(70, 120, 80));
         g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
 
-        // Health Bar
+        // Enemy Health Bar
         g2.setFont(new Font("ARIAL", Font.PLAIN, 20));
         g2.setColor(Color.WHITE);
-        String text = "Health: ";
+        String text = "Enemy HP: ";
         int x = 10;
         int y = 30;
         g2.drawString(text, x, y);
 
-        // The actual bar
+        g2.setFont(new Font("ARIAL", Font.PLAIN, 20));
+        g2.setColor(Color.WHITE);
+        text = "Your HP: ";
+        x = gp.tileSize*7;
+        y = 30;
+        g2.drawString(text, x, y);
+
+        // ENEMY HEALTH BAR
+        g2.setColor(Color.RED);
+        g2.fillRect(120, 12, Math.round(200 * (gp.enemy[enemyTag].health / gp.enemy[enemyTag].maxHealth)), 20);
+        
+        // Player Health Bar
         g2.setColor(Color.GREEN);
-        g2.fillRect(80, 12, Math.round(300 * (gp.enemy[enemyTag].health / gp.enemy[enemyTag].maxHealth)), 20);
+        g2.fillRect(gp.tileSize*7 + 90, 12, Math.round(200 * (gp.player.health / gp.player.maxHealth)), 20);
+       
         // COMBAT TITLE
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 60F));
-        text = "Now in Combat State";
+        text = "Name: " + gp.enemy[enemyTag].name;
         x = getXForCenteredText(text);
         y = gp.screenHeight/2 - gp.tileSize * 3;
 
         g2.setColor(Color.BLACK);
         g2.drawString(text, x, y);
 
+        g2.setColor(Color.WHITE);
+        g2.drawString(text, x-5, y-5);
+
         // ENEMY IMAGE
         x = gp.screenWidth/2 - gp.tileSize - gp.tileSize/2;
         y = gp.screenHeight/2 - gp.tileSize*2;
+        
         g2.drawImage(gp.enemy[enemyTag].down1, x, y, gp.tileSize * 3, gp.tileSize * 3, null);
+        
 
         // DRAW COMBAT BOX
         if (gp.enemy[enemyTag].health > 0){
@@ -172,55 +188,55 @@ public class UI {
             g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
             g2.setColor(Color.BLACK);
 
-            text = "Punch that bii";
+            text = gp.enemy[enemyTag].attackOption[0];
             x = gp.tileSize*2;
             y = gp.tileSize * 9;
             g2.drawString(text, x, y);
             if (combatChoice == 0){
                 g2.drawString(">", x-gp.tileSize, y);
                 if (gp.keyH.enemyTalk == true){
-                    text = "bruh";
+                    text = gp.enemy[enemyTag].attackResponse[0];
                     x = gp.tileSize * 2;
-                    y = gp.tileSize * 7;
+                    y = gp.tileSize * 8 - 24;
                     g2.drawString(text, x, y);
                 }
             }
 
-            text = "Throw rock";
+            text = gp.enemy[enemyTag].attackOption[1];
             x = gp.tileSize*9;
             y = gp.tileSize * 9;
             g2.drawString(text, x, y);
             if (combatChoice == 1){
                 g2.drawString(">", x-gp.tileSize, y);
                 if (gp.keyH.enemyTalk == true){
-                    text = "oww";
+                    text = gp.enemy[enemyTag].attackResponse[1];
                     x = gp.tileSize * 2;
-                    y = gp.tileSize * 7;
+                    y = gp.tileSize * 8 - 24;
                     g2.drawString(text, x, y);
                 }
             }
 
-            text = "Mean Insult";
+            text = gp.enemy[enemyTag].attackOption[2];
             x = gp.tileSize*2;
             y = gp.tileSize * 11;
             g2.drawString(text, x, y);
             if (combatChoice == 2){
                 g2.drawString(">", x-gp.tileSize, y);
                 if (gp.keyH.enemyTalk == true){
-                    text = "why";
+                    text = gp.enemy[enemyTag].attackResponse[2];
                     x = gp.tileSize * 2;
-                    y = gp.tileSize * 7;
+                    y = gp.tileSize * 8 -24;
                     g2.drawString(text, x, y);
                 }
             }
 
-            text = "Quit";
+            text = gp.enemy[enemyTag].attackOption[3];
             x = gp.tileSize*9;
             y = gp.tileSize * 11;
             g2.drawString(text, x, y);
             if (combatChoice == 3){
                 g2.drawString(">", x-gp.tileSize, y);
-                text = "please just leave";
+                text = gp.enemy[enemyTag].attackResponse[3];
                 x = gp.tileSize * 2;
                 y = gp.tileSize * 8 - 24;
                 g2.drawString(text, x, y);

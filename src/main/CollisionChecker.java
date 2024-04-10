@@ -147,7 +147,7 @@ public class CollisionChecker {
         int index = 999;
 
         for (int i = 0; i < target.length; i++){
-            if (target[i] != null){
+            if (target[i] != null && target[i].appears == gp.mapState){
 
                 // Get entity's solid area position
                 entity.solidArea.x += entity.worldX;
@@ -224,6 +224,7 @@ public class CollisionChecker {
          gp.player.solidArea.x += gp.player.worldX;
          gp.player.solidArea.y += gp.player.worldY;
 
+        if (entity.appears == gp.mapState){
          switch (entity.direction) {
              case "up":
                  entity.solidArea.y -= entity.speed;
@@ -257,6 +258,7 @@ public class CollisionChecker {
              default:
                  break;
          }
+        }
          entity.solidArea.x = entity.solidAreaDefaultX;
          entity.solidArea.y = entity.solidAreaDefaultY;
          gp.player.solidArea.x = gp.player.solidAreaDefaultX;

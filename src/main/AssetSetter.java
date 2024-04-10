@@ -31,6 +31,10 @@ public class AssetSetter {
         gp.enemy[0] = new BlueBoy(gp);
         gp.enemy[0].worldX = gp.tileSize*25;
         gp.enemy[0].worldY = gp.tileSize*21;
+
+        gp.enemy[1] = new NPC_OldMan(gp);
+        gp.enemy[1].worldX = gp.tileSize*12;
+        gp.enemy[1].worldY = gp.tileSize*11;
     }
 
 }
