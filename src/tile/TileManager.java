@@ -45,7 +45,9 @@ public class TileManager {
             setUp(8, "duodecimTiles/PillarBottom", true);
             setUp(9, "duodecimTiles/earth", false);
             setUp(10, "duodecimTiles/CaveWall", true);
-            setUp(11, "duodecimTiles/dark", false);
+            setUp(11, "duodecimTiles/dark", true);
+            setUp(12, "duodecimTiles/CaveFloor", false);
+            setUp(13, "duodecimTiles/light", true);
 
     }
 
