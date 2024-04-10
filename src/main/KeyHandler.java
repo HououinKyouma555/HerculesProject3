@@ -45,7 +45,7 @@ public class KeyHandler implements KeyListener {
             }
             // messing around shit
             if (code == KeyEvent.VK_Q){
-                gp.mapState = gp.npcHouse1;
+                gp.mapState = gp.cave;
                 gp.tileM.loadMap("/res/maps/cave.txt"); 
             }
             if (code == KeyEvent.VK_E){

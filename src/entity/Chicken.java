@@ -4,7 +4,6 @@ import main.GamePanel;
 
 public class Chicken extends Entity{
     
-
     public Chicken(GamePanel gp){
         super(gp);
 

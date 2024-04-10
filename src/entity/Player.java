@@ -52,8 +52,8 @@ public class Player extends Entity {
 
     // initial placement of character on map
     public void setDefaultValues(){
-        worldX = 23 * gp.tileSize;
-        worldY = 21 * gp.tileSize;
+        worldX = 7 * gp.tileSize;
+        worldY = 9 * gp.tileSize;
         speed = 5;
         direction = "down";
     }

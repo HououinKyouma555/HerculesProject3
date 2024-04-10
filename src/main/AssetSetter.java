@@ -2,6 +2,7 @@ package main;
 
 import entity.BlueBoy;
 import entity.Chicken;
+import entity.Lion;
 import entity.NPC_OldMan;
 import object.OBJ_Door;
 
@@ -29,7 +30,6 @@ public class AssetSetter {
         gp.npc[1] = new Chicken(gp);
         gp.npc[1].worldX = gp.tileSize*27;
         gp.npc[1].worldY = gp.tileSize*21;
-
     }
 
     public void setEnemy(){
@@ -40,6 +40,10 @@ public class AssetSetter {
         gp.enemy[1] = new NPC_OldMan(gp);
         gp.enemy[1].worldX = gp.tileSize*12;
         gp.enemy[1].worldY = gp.tileSize*11;
+
+        gp.enemy[2] = new Lion(gp);
+        gp.enemy[2].worldX = gp.tileSize*32;
+        gp.enemy[2].worldY = gp.tileSize*3;
     }
 
 }

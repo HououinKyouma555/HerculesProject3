@@ -62,6 +62,7 @@ public class GamePanel extends JPanel implements Runnable{
     public int mapState;
     public final int Nemea = 0;
     public final int npcHouse1 = 1;
+    public final int cave = 2;
 
     // Constructor
     public GamePanel(){
