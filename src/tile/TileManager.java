@@ -18,7 +18,7 @@ public class TileManager {
     public TileManager (GamePanel gp){
         this.gp = gp;
 
-        tile = new Tile[10];
+        tile = new Tile[15];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
@@ -44,6 +44,10 @@ public class TileManager {
             setUp(7, "duodecimTiles/PillarTop", true);
             setUp(8, "duodecimTiles/PillarBottom", true);
             setUp(9, "duodecimTiles/earth", false);
+            setUp(10, "duodecimTiles/CaveWall", true);
+            setUp(11, "duodecimTiles/dark", true);
+            setUp(12, "duodecimTiles/CaveFloor", false);
+            setUp(13, "duodecimTiles/light", true);
 
     }
 
