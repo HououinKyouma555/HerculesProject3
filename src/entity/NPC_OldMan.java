@@ -109,7 +109,9 @@ public class NPC_OldMan extends Entity{
     public String enemyAttack(){
         
         String attackName = "hit with staff";
-        gp.player.health -= 2;
+        if (gp.ui.enemyHasAttacked == false){
+            gp.player.health -= 2;
+        }
 
         return attackName;
         

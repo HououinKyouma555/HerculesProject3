@@ -110,29 +110,34 @@ public class KeyHandler implements KeyListener {
                 }
             }
             if (code == KeyEvent.VK_ENTER){
-                switch(gp.ui.combatChoice){
-                    case (0):
-                        enemyTalk = true;
-                        gp.ui.attackSelected = 0;
-                        gp.enemy[gp.player.enemyTag].attackEnemy(gp.ui.attackSelected);
-                        break;
-                    case (1):
-                        enemyTalk = true;
-                        gp.ui.attackSelected = 1;
-                        gp.enemy[gp.player.enemyTag].attackEnemy(gp.ui.attackSelected);
-                        break;
-                    case (2):
-                        enemyTalk = true;
-                        gp.ui.attackSelected = 2;
-                        gp.enemy[gp.player.enemyTag].attackEnemy(gp.ui.attackSelected);
-                        break;
-                    case (3):
-                        gp.ui.attackSelected = 3;
-                        gp.enemy[gp.player.enemyTag].attackEnemy(gp.ui.attackSelected);
-                        gp.stopMusic();
-                        gp.playMusic(0);
-                        gp.gameState = gp.playState;
-                        break;
+                if (gp.turn % 2 == 0){
+                    switch(gp.ui.combatChoice){
+                        case (0):
+                            enemyTalk = true;
+                            gp.ui.attackSelected = 0;
+                            gp.enemy[gp.player.enemyTag].attackEnemy(gp.ui.attackSelected);
+                            break;
+                        case (1):
+                            enemyTalk = true;
+                            gp.ui.attackSelected = 1;
+                            gp.enemy[gp.player.enemyTag].attackEnemy(gp.ui.attackSelected);
+                            break;
+                        case (2):
+                            enemyTalk = true;
+                            gp.ui.attackSelected = 2;
+                            gp.enemy[gp.player.enemyTag].attackEnemy(gp.ui.attackSelected);
+                            break;
+                        case (3):
+                            gp.ui.attackSelected = 3;
+                            gp.enemy[gp.player.enemyTag].attackEnemy(gp.ui.attackSelected);
+                            gp.stopMusic();
+                            gp.playMusic(0);
+                            gp.gameState = gp.playState;
+                            break;
+                    }
+                }
+                else if (gp.turn % 2 == 1){
+                    enterPressed = true;
                 }
                 gp.turn++;
              }

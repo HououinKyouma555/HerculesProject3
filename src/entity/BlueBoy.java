@@ -59,7 +59,9 @@ public class BlueBoy extends Entity{
     public String enemyAttack(){
         
         String attackName = "punch";
-        gp.player.health -= 5;
+        if (gp.ui.enemyHasAttacked == false){
+            gp.player.health -= 5;
+        }
 
         return attackName;
         

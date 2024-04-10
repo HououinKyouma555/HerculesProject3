@@ -215,6 +215,7 @@ public class Player extends Entity {
 
     public void battleEnemy(int i){
     if (i != 999){
+            gp.turn = 0;
             gp.gameState = gp.combatState;
             gp.stopMusic();
             gp.playMusic(6);

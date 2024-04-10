@@ -21,6 +21,7 @@ public class UI {
     public int combatChoice = 0;
     int waitTime = 0;
     public int attackSelected;
+    public boolean enemyHasAttacked;
 
     public UI(GamePanel gp){
         this.gp = gp;
@@ -189,15 +190,21 @@ public class UI {
             g2.setColor(Color.BLACK);
 
             if (gp.turn %2 == 1){
+                
                 String attack = gp.enemy[enemyTag].enemyAttack();
+                enemyHasAttacked = true;
+                
                 x = gp.tileSize*2;
                 y = gp.tileSize * 9;
-                g2.drawString(attack, x, y);
-                gp.turn++;
+                g2.drawString(gp.enemy[enemyTag].name +" used "+ attack+ "!", x, y);
+                if (gp.keyH.enterPressed == true){
+                    gp.turn++;
+                }
             }
             else{
                 
-                waitTime = 0;
+                enemyHasAttacked = false;
+                gp.keyH.enterPressed = false;
                 text = gp.enemy[enemyTag].attackOption[0];
                 x = gp.tileSize*2;
                 y = gp.tileSize * 9;
